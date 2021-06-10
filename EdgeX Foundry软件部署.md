@@ -21,8 +21,8 @@
 
 ## 二、前提条件
 开始部署前，请确认满足以下条件：
-- 已按照如下示意图安装好相关的硬件设备：
-  <img src="/images/软件部署指南/硬件连线图-icon.png" width=500/>
+- 已按照如下示意图安装好相关的硬件设备：<br>
+  <img src="/images/软件部署指南/硬件连线图-icon.png" width=450 align=center />
   <br>
 
 - 已在EdgeX Foundry服务器上安装下表中的软件：
@@ -191,7 +191,7 @@
 3. 进入/root目录：
     `cd /root`
 
-4. 检查**docker-compose.yml**文件，确保文件包含安卓盒子的配置，如下图所示：
+4. 检查**docker-compose.yml**文件，确保文件包含安卓盒子的配置，如下图所示：<br>
 <img src="/images/软件部署指南/docker-compose配置文件-安卓.png" width=300/>
 <br>
 5. 启动安卓服务的容器：
@@ -199,10 +199,10 @@
 
 6. 使用浏览器进入http://{EdgeX Foundry IP地址}:8500/ui/dc1/kv/edgex/devices/1.0/edgex-device-mqtt-android/Driver/。
 
-7. 修改**IncomingHost**为EdgeX Foundry的IP地址。
+7. 修改IncomingHost为EdgeX Foundry的IP地址。<br>
 <img src="/images/软件部署指南/安卓-IncomingHost.png" width=500/>
 <br>
-8. 修改**ResponseHost**为EdgeX Foundry的IP地址。
+8. 修改**ResponseHost**为EdgeX Foundry的IP地址。<br>
    <img src="/images/软件部署指南/安卓-ResponseHost.png" width=500/>
 <br>
 
@@ -215,27 +215,27 @@
     **AI**：互动屏
     **AUDIO**：音乐盒子
 
-10. 修改**IncomingClientId**为**IncomingDataSubscriber-android**。
+10. 修改IncomingClientId为IncomingDataSubscriber-android。<br>
 <img src="/images/软件部署指南/安卓-IncomingClientId.png" width=500/>
 
-11. 修改**ResponseClientId**为**CommandResponseSubscriber-android**。
+11. 修改ResponseClientId为CommandResponseSubscriber-android。
 12. 上传安卓盒子信息配置文件。
     (1) 使用浏览器进入http://{EdgeX Foundry IP地址}:4000/。
-    (2) 点击**Device Profile**下面的**+**号，上传Android盒子的配置文件。
+    (2) 点击Device Profile下面的+号，上传安卓音乐盒子的配置文件。<br>
     <img src="/images/软件部署指南/安卓-上传profile.png"/>
 <br>
-    (3) 点击**Devices**下面的**+**号，添加Android盒子信息。
-        - **Schema**：**tcp**
-        - **Host**：EdgeX Foundry服务器的IP地址
-        - **Port**：MQTT服务的端口号，此处为**1883**
-        - **Clientid**：**clientid**
-        - **Topic**：**api/android/{type}/{brand_id}/{mac}**
-            其中，**brand_id**是品牌ID，**mac**是安卓盒子的MAC地址，**type**是设备类型
-            **type**取值：
-            **VIDEO**：广告屏
-            **SVIDEO**：同步屏
-            **AI**：互动屏
-            **AUDIO**：音乐盒子
-13. 重启**edgex-device-mqtt-android**容器使配置生效：
+    (3) 点击Devices下面的+号，添加安卓音乐盒子信息。
+        - Schema：tcp
+        - Host：EdgeX Foundry服务器的IP地址
+        - Port：MQTT服务的端口号，此处为1883
+        - Clientid**：clientid
+        - Topic：api/android/{type}/{brand_id}/{mac}
+            其中，brand_id是品牌ID，mac是安卓盒子的MAC地址，type是设备类型
+            type取值：
+            VIDEO：广告屏
+            SVIDEO：同步屏
+            AI：互动屏
+            AUDIO：音乐盒子
+1.  重启edgex-device-mqtt-android容器使配置生效：
 
      `docker restart edgex-device-mqtt-android`
