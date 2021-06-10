@@ -27,32 +27,24 @@
 ### 2.1 注册网关
 
 1. 使用Smart OWON Configuration Tool查找OWON网关的IP地址。<br>
-<img src="/images/OWN网关配置.png" width="450" align=center/>
+   <img src="/images/OWN网关配置.png" width="450" align=center/>
 <br>
-1. 使用Socket工具，向{OWON网关IP地址}:11500发送如下报文注册网关：<br>
-
-   `{"type":"wizardConfig","command":"serverCfg","argument":{"host":"{EdgeX Foundry IP地址}","port":1883},"sequence":1}`<br>
-
-    其中，1883为MQTT服务的端口号。
-
-2. 向{OWON网关IP地址}:11500发送如下报文，启动网关并连接到MQTT 服务器：<br>
+2. 使用Socket工具，向{OWON网关IP地址}:11500发送如下报文注册网关：<br>
    
-    `{"type":"wizardConfig", "command":"startRegister", "sequence":1 }`
+   `{"type":"wizardConfig","command":"serverCfg","argument":{"host":"{EdgeX Foundry IP地址}","port":1883},"sequence":1}`<br>
+   其中，1883为MQTT服务的端口号。
+
+3. 向{OWON网关IP地址}:11500发送如下报文，启动网关并连接到MQTT 服务器：<br>
+   `{"type":"wizardConfig", "command":"startRegister", "sequence":1 }`
 
 ### 2.2 连接灯组
 
 1. 使用root用户登录EdgeX Foundry服务器。
-
 2. 执行以下命令安装mosquitto_pub工具：<br>
-
-    `apt install -y mosquitto-clients`
+   `apt install -y mosquitto-clients`
 
 3. 将ZigBee灯组接通电源，保持灯亮。
-
 4. 查看OWON网关盒子背面的MAC地址。
-
 5. 在EdgeX Foundry服务器上执行以下命令：<br>
-
-    `mosquitto_pub -t api/device/{deviceId}/test -m '{"type":"zigbeeConfig","command":"permitJoin", "sequence":1010, "argument": { "switchgear":"on", "second":60 } }'`<br>
-
-    其中**{deviceId}**为OWON网关的MAC地址。
+   `mosquitto_pub -t api/device/{deviceId}/test -m '{"type":"zigbeeConfig","command":"permitJoin", "sequence":1010, "argument": { "switchgear":"on", "second":60 } }'`<br>
+   其中{deviceId}为OWON网关的MAC地址。
