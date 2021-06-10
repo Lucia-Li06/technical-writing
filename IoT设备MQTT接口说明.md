@@ -41,7 +41,7 @@
 
 
 您可以将安卓设备、中控面板，业务网关等设备注册到EdgeX Foundry服务，通过MQTT服务接口对设备进行控制操作。
-使用本文档中的接口之前，您需要为MQTT客户端订阅**response_topic/#**主题。
+使用本文档中的接口之前，您需要为MQTT客户端订阅response_topic/#主题。
 
 ## 1. 通用接口
 ### 1.1 查看所有已注册设备的命令信息列表
@@ -58,7 +58,7 @@
 response_topic/command_get
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device
@@ -74,7 +74,7 @@ http://edgex-core-command:48082/api/v1/device
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 |     名称          |     参数类型      |     说明                  |     位置                                                                                                                 |   
 |-----------------------|-------------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -104,7 +104,8 @@ http://edgex-core-command:48082/api/v1/device
 |     expectedValues    |     String数组    |     期望的数值                |     responses中的数据结构                                                                                              |   
 |     description       |     String        |     响应描述                  |     responses中的数据结构                                                                                              |   
 |     parameterNames    |     String数组    |     命令PUT方法的参数名       |     put中的数据结构                                                                                                    |   
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 
@@ -170,7 +171,7 @@ request_topic/command_get
 ```html
 response_topic/command_get
 ```
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/name/android
@@ -186,7 +187,7 @@ http://edgex-core-command:48082/api/v1/device/name/android
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 |     响应字段          |     字段类型      |     字段描述                  |     说明                                                                                                                 |
 |-----------------------|-------------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -216,7 +217,8 @@ http://edgex-core-command:48082/api/v1/device/name/android
 |     expectedValues    |     String数组    |     期望的数值                |     responses中的数据结构                                                                                             |
 |     description       |     String        |     响应描述                  |     responses中的数据结构                                                                                              |
 |     parameterNames    |     String数组    |     命令PUT方法的参数名       |     put中的数据结构                                                                                                    |
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 
@@ -272,11 +274,6 @@ http://edgex-core-command:48082/api/v1/device/name/android
 
 
 
-
-
-
-
-
 ### 2.2 更新节目计划
 
 **请求主题**
@@ -291,7 +288,7 @@ request_topic/command_put
 response_topic/command_put
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/73e5aa47-9cdb-44fe-844c-3faf8598309e/command/c56cab3c-6ef8-4a55-a203-03c5f851e425
@@ -312,8 +309,8 @@ http://edgex-core-command:48082/api/v1/device/73e5aa47-9cdb-44fe-844c-3faf859830
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 ### 2.3 更新节目
@@ -328,7 +325,7 @@ request_topic/command_put
 ```html
 response_topic/command_put
 ```
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/73e5aa47-9cdb-44fe-844c-3faf8598309e/command/7ce8e81a-925b-4166-95ef-db992d9117de
@@ -351,8 +348,8 @@ http://edgex-core-command:48082/api/v1/device/73e5aa47-9cdb-44fe-844c-3faf859830
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。。
 
 ### 2.4 控制安卓音乐盒子
@@ -369,7 +366,7 @@ request_topic/command_put
 response_topic/command_put
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/73e5aa47-9cdb-44fe-844c-3faf8598309e/command/f2929af5-12dd-497a-a66d-759157ab559b
@@ -387,8 +384,8 @@ http://edgex-core-command:48082/api/v1/device/73e5aa47-9cdb-44fe-844c-3faf859830
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 ### 2.5 安卓音乐盒子截屏并上传
@@ -404,7 +401,7 @@ request_topic/command_put
 ```html
 response_topic/command_put
 ```
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/73e5aa47-9cdb-44fe-844c-3faf8598309e/command/30370719-3b57-4d5f-a5c4-ea301c2a319c
@@ -427,8 +424,8 @@ http://edgex-core-command:48082/api/v1/device/73e5aa47-9cdb-44fe-844c-3faf859830
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 ### 2.6 控制音乐
@@ -445,7 +442,7 @@ request_topic/command_put
 response_topic/command_put
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/73e5aa47-9cdb-44fe-844c-3faf8598309e/command/1f7a319a-d734-4966-a3d3-529472572e3d
@@ -468,8 +465,8 @@ http://edgex-core-command:48082/api/v1/device/73e5aa47-9cdb-44fe-844c-3faf859830
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 
@@ -488,7 +485,7 @@ request_topic/command_get
 response_topic/command_get
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/name/zhonghong
@@ -503,7 +500,7 @@ http://edgex-core-command:48082/api/v1/device/name/zhonghong
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 |     名称          |     参数类型      |     说明                  |     位置                                                                                                                 |
 |-----------------------|-------------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -533,7 +530,8 @@ http://edgex-core-command:48082/api/v1/device/name/zhonghong
 |     expectedValues    |     String数组    |     期望的数值                |     responses中的数据结构                                                                                             |
 |     description       |     String        |     响应描述                  |     responses中的数据结构                                                                                              |
 |     parameterNames    |     String数组    |     命令PUT方法的参数名       |     put中的数据结构                                                                                                   |
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息示例：
 
@@ -595,7 +593,7 @@ request_topic/command_get
 response_topic/command_get
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c380/command/e0f60b31-9b99-4529-b668-59c035e4d461
@@ -610,7 +608,7 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 
 |     名称        |    参数类型    |     说明                  |     位置                                                                                                                 |
@@ -624,7 +622,8 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 |     value           |     String      |     空调的状态<br>1：开机；0：关机            |     readings中的数据结构                                                        |
 |     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                                               |
 |     EncodedEvent    |     null        |     未使用                      |     edgexbody中的数据结构                                                                                     |
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 
@@ -663,7 +662,7 @@ request_topic/command_put
 response_topic/command_put
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c380/command/6b4ed33b-f3ea-426c-833e-51fe3ab05da3
@@ -687,8 +686,8 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 ### 3.4 查询空调的温度
@@ -704,7 +703,7 @@ request_topic/command_get
 ```html
 response_topic/command_get
 ```
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c380/command/6568d7e1-089f-4db9-91b3-e65024181fec
@@ -720,7 +719,7 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 |     名称        |     参数类型    |     说明                  |     位置                                           |
 |---------------------|-----------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -734,7 +733,7 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 |     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                                               |
 |     EncodedEvent    |     null        |     未使用                      |     edgexbody中的数据结构                                                                                      |
 
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 
@@ -774,7 +773,7 @@ request_topic/command_put
 response_topic/command_put
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c380/command/637c33bc-a11c-4e6d-906d-3a7071cbe8e5
@@ -797,8 +796,8 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 ### 3.6 查询空调当前的模式
@@ -815,7 +814,7 @@ request_topic/command_get
 response_topic/command_get
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c380/command/2ba1b751-f3b6-4118-a883-165be69f1b73
@@ -830,7 +829,7 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 |     名称        |     参数类型    |     说明                  |     位置                                                                                                                 |
 |---------------------|-----------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -843,7 +842,8 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 |     value           |     String      |     空调的模式<br>1：制冷<br>2：除湿<br>4：送风<br>8：制热 |     readings中的数据结构                                     |
 |     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                                               |
 |     EncodedEvent    |     null        |     未使用                      |     edgexbody中的数据结构                                                                                 |
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 
@@ -883,7 +883,7 @@ request_topic/command_put
 response_topic/command_put
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c380/command/f5157652-ab38-4126-9c81-a891a2ea4007
@@ -905,8 +905,8 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
     }
 }
 ```
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 ### 3.8 查询空调的风速
@@ -922,7 +922,7 @@ request_topic/command_get
 response_topic/command_get
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c380/command/a6316c11-5ab0-48a5-bb3e-f165c76e4cb7
@@ -936,7 +936,7 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 |     名称        |     参数类型    |     说明                  |     位置                                                                                                                 |
 |---------------------|-----------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -949,7 +949,8 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 |     value           |     String      |     空调的风速<br>1：高速<br>2：中速<br>4：低速    |     readings中的数据结构                                                 |
 |     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                                               |
 |     EncodedEvent    |     null        |     未使用                      |     edgexbody中的数据结构                                                                                      |
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 ```html
@@ -987,7 +988,7 @@ request_topic/command_put
 response_topic/command_put
 ```
 
-**请求**
+**请求**<br>
 请求URL： 
 ```html
 http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c380/command/b8a5887a-816a-4635-8af2-dbe740dfde97
@@ -1010,8 +1011,8 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 
@@ -1027,7 +1028,7 @@ request_topic/command_get
 ```html
 response_topic/command_get
 ```
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c380/command/d2a15574-e743-4927-bf38-8536b7efdbbf
@@ -1042,7 +1043,7 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 }
 ```
 
-**响应**
+**响应**<br>
 响应数据：
 |     名称        |     参数类型    |     说明                  |     位置                                                                                                                 |
 |---------------------|-----------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -1055,7 +1056,8 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 |     value           |     String      |     空调的回风温度            |     readings中的数据结构                                                                                              |
 |     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                                               |
 |     EncodedEvent    |     null        |     未使用                      |     edgexbody中的数据结构                                                                                      |
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 ```html
@@ -1089,7 +1091,7 @@ request_topic/command_get
 ```html
 response_topic/command_get
 ```
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c380/command/8106398a-f648-4348-9102-c208969e8257
@@ -1104,7 +1106,7 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 |     名称        |     参数类型    |     说明                  |     位置                                                                                                                 |
 |---------------------|-----------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -1117,7 +1119,8 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 |     value           |     String      |     空调的状态码<br>0：无故障。<br>其他值：设备故障，请联系中弘的技术支持。  |     readings中的数据结构                 |
 |     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                                               |
 |     EncodedEvent    |     null        |     未使用                      |     edgexbody中的数据结构                                                                                      |
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 
@@ -1158,7 +1161,7 @@ request_topic/command_get
 response_topic/command_get
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/name/owon
@@ -1173,7 +1176,7 @@ http://edgex-core-command:48082/api/v1/device/name/owon
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 
 |     名称          |     参数类型      |     说明                 |     位置                       |
@@ -1204,7 +1207,8 @@ http://edgex-core-command:48082/api/v1/device/name/owon
 |     expectedValues    |     String数组    |     期望的数值               |     responses中的数据结构    |
 |     description       |     String        |     响应描述                 |     responses中的数据结构    |
 |     parameterNames    |     String数组    |     命令PUT方法的参数名      |     put中的数据结构          |
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 
@@ -1286,7 +1290,7 @@ request_topic/command_get
 response_topic/command_get
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/d36c1417-0f9a-4666-bea1-dce85c7478fe
@@ -1301,7 +1305,7 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 
 |     名称        |     参数类型    |     说明                  |     位置                                                                                                         |
@@ -1315,7 +1319,8 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 |     value           |     String      |     开关状态<br>cache：缓存值<br>switchgear：开关的状态，off表示关机，on表示开机            |     readings中的数据结构    |
 |     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                                      |
 |     EncodedEvent    |     Null        |     未使用                      |     edgexbody中的数据结构                                                                         |
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 
@@ -1354,7 +1359,7 @@ request_topic/command_put
 response_topic/command_put
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/d36c1417-0f9a-4666-bea1-dce85c7478fe
@@ -1376,8 +1381,8 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 ### 4.4 查询灯的亮度
@@ -1390,7 +1395,7 @@ request_topic/command_get
 ```html
 response_topic/command_get
 ```
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/a2bf7ac0-26b3-4861-8ba5-23fde907f83f
@@ -1405,7 +1410,7 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 
 |     名称        |     参数类型    |     说明                  |     位置                                                                                         |
@@ -1419,7 +1424,8 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 |     value           |     String      |     灯的亮度<br>level字段取值范围：0-255<br>值越大，表示亮度越大       |     readings中的数据结构     |
 |     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                     |
 |     EncodedEvent    |     Null        |     未使用                      |     edgexbody中的数据结构                                                              |
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 
@@ -1455,7 +1461,7 @@ request_topic/command_put
 response_topic/command_put
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/a2bf7ac0-26b3-4861-8ba5-23fde907f83f
@@ -1477,8 +1483,8 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 
@@ -1493,7 +1499,7 @@ request_topic/command_put
 response_topic/command_put
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/50a08f1c-b506-4f0c-8dd4-c7899936a5d0
@@ -1514,8 +1520,8 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 
@@ -1532,7 +1538,7 @@ request_topic/command_get
 response_topic/command_get
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/8b7ad566-1016-4de8-8ef1-c4185122cf25
@@ -1547,7 +1553,7 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 
 |     名称        |     参数类型    |     说明                  |     位置                                   |
@@ -1561,7 +1567,8 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 |     value           |     String      |     OWON网关连接的设备信息     |     readings中的数据结构                 |
 |     valueType       |     String      |     value字段的类型        |     readings中的数据结构                 |
 |     EncodedEvent    |     Null        |     未使用                     |     edgexbody中的数据结构        |
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 
@@ -1599,7 +1606,7 @@ request_topic/command_get
 ```html
 response_topic/command_get
 ```
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/bba188c2-0d29-40b3-939b-560c6f7d17b5
@@ -1615,7 +1622,7 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 
 |     名称        |     参数类型    |     说明                  |     位置                                                                                       |
@@ -1629,6 +1636,7 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 |     value           |     String      |     灯的色温<br>colorTemp取值范围：1-370<br>值越大，色温越偏暖  |     readings中的数据结构    |
 |     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                     |
 |     EncodedEvent    |     Null        |     未使用                      |     edgexbody中的数据结构                                                          |
+
 其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
 
 响应消息样例：
@@ -1667,7 +1675,7 @@ request_topic/command_put
 ```html
 response_topic/command_put
 ```
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/bba188c2-0d29-40b3-939b-560c6f7d17b5
@@ -1689,8 +1697,8 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 ### 4.10 查看灯的颜色
@@ -1720,7 +1728,7 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 }
 ```
 
-**响应**
+**响应**<br>
 响应参数：
 
 |     名称        |     参数类型    |     说明                  |     位置                                                                                                                                  |
@@ -1734,7 +1742,8 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 |     value           |     String      |     灯的颜色<br>其中colorX和colorY是灯的颜色代码。<br>关于此处颜色代码与RGB颜色代码的转换，请参考[5.3 颜色代码转换](#53-颜色代码转换)。            |     readings中的数据结构   |
 |     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                                                                |
 |     EncodedEvent    |     Null        |     未使用                      |     edgexbody中的数据结构                                                                                                 |
-其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。<br>
 
 响应消息样例：
 
@@ -1773,7 +1782,7 @@ request_topic/command_put
 response_topic/command_put
 ```
 
-**请求**
+**请求**<br>
 请求URL：
 ```html
 http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/c3b2cda3-fffe-4373-aa65-1f1d9ed46555
@@ -1795,8 +1804,8 @@ http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2
 }
 ```
 
-**响应**
-接口正常的返回码为2xx，例如200或者204。
+**响应**<br>
+接口正常的返回码为2xx，例如200或者204。<br>
 关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 
