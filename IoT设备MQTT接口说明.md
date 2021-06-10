@@ -1,5 +1,45 @@
 <h1>IoT设备MQTT接口说明</h1>
-[TOC]
+
+- [1. 通用接口](#1-通用接口)
+  - [1.1 查看所有已注册设备的命令信息列表](#11-查看所有已注册设备的命令信息列表)
+- [2. 控制音乐安卓设备](#2-控制音乐安卓设备)
+  - [2.1 查询所有已注册安卓音乐盒子的命令信息列表](#21-查询所有已注册安卓音乐盒子的命令信息列表)
+  - [2.2 更新节目计划](#22-更新节目计划)
+  - [2.3 更新节目](#23-更新节目)
+  - [2.4 控制安卓音乐盒子](#24-控制安卓音乐盒子)
+  - [2.5 安卓音乐盒子截屏并上传](#25-安卓音乐盒子截屏并上传)
+  - [2.6 控制音乐](#26-控制音乐)
+- [3. 通过中弘网关控制空调](#3-通过中弘网关控制空调)
+  - [3.1 查询中弘网关下空调设备的命令信息列表](#31-查询中弘网关下空调设备的命令信息列表)
+  - [3.2 查询空调的状态](#32-查询空调的状态)
+  - [3.3 设置空调的开关状态](#33-设置空调的开关状态)
+  - [3.4 查询空调的温度](#34-查询空调的温度)
+  - [3.5 设置空调的温度](#35-设置空调的温度)
+  - [3.6 查询空调当前的模式](#36-查询空调当前的模式)
+  - [3.7 设置空调的模式](#37-设置空调的模式)
+  - [3.8 查询空调的风速](#38-查询空调的风速)
+  - [3.9 设置空调的风速](#39-设置空调的风速)
+  - [3.10 查询空调当前的回风温度](#310-查询空调当前的回风温度)
+  - [3.11 查询空调的故障状态](#311-查询空调的故障状态)
+- [4. 通过OWON网关控制灯](#4-通过owon网关控制灯)
+  - [4.1 获取OWON网关下灯设备的命令信息列表](#41-获取owon网关下灯设备的命令信息列表)
+  - [4.2 查询灯的状态](#42-查询灯的状态)
+  - [4.3 设置灯的开关状态](#43-设置灯的开关状态)
+  - [4.4 查询灯的亮度](#44-查询灯的亮度)
+  - [4.5 设置灯的亮度](#45-设置灯的亮度)
+  - [4.6 查找灯的位置](#46-查找灯的位置)
+  - [4.7 查看OWON网关连接的所有设备](#47-查看owon网关连接的所有设备)
+  - [4.8 查看灯的色温](#48-查看灯的色温)
+  - [4.9 设置灯的色温](#49-设置灯的色温)
+  - [4.10 查看灯的颜色](#410-查看灯的颜色)
+  - [4.11 设置灯的颜色](#411-设置灯的颜色)
+- [5. 附录](#5-附录)
+  - [5.1 响应公共参数](#51-响应公共参数)
+  - [5.2 返回码](#52-返回码)
+  - [5.3 颜色代码转换](#53-颜色代码转换)
+  - [5.4 空调的状态寄存器和控制寄存器地址计算](#54-空调的状态寄存器和控制寄存器地址计算)
+
+
 您可以将安卓设备、中控面板，业务网关等设备注册到EdgeX Foundry服务，通过MQTT服务接口对设备进行控制操作。
 使用本文档中的接口之前，您需要为MQTT客户端订阅**response_topic/#**主题。
 
@@ -55,7 +95,7 @@ http://edgex-core-command:48082/api/v1/device
 |     code              |     String        |     响应码                    |     responses中的数据结构                                                                                              |   
 |     expectedValues    |     String数组    |     期望的数值                |     responses中的数据结构                                                                                             |   
 |     description       |     String        |     响应描述                  |     responses中的数据结构                                                                                              |   
-|     parameterNames    |     String数组    |     命令GET方法的参数名       |     get中的数据结构。                                                                                                    |   
+|     parameterNames    |     String数组    |     命令GET方法的参数名       |     get中的数据结构                                                                                                    |   
 |     put               |     JSON对象      |     命令PUT方法               |     commands中的数据结构                                                                                               |   
 |     url               |     String        |     命令PUT方法的URL         |     put中的数据结构                                                                                                    |   
 |     path              |     String        |     命令PUT方法的路径     |     put中的数据结构                                                                                                    |   
@@ -66,7 +106,7 @@ http://edgex-core-command:48082/api/v1/device
 |     parameterNames    |     String数组    |     命令PUT方法的参数名       |     put中的数据结构                                                                                                    |   
 其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
 
-响应示例：
+响应消息样例：
 
 ```html
 {
@@ -957,7 +997,7 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 | 名称                            | 是否必须 | 参数类型 | 说明                                     |
 | ------------------------------- | -------- | -------- | ---------------------------------------- |
 | WindSpeedSet_{空调的控制寄存器地址} | 是       | string   | 空调的模式<br>1：高速<br>2：中速<br>4：低速 |
-关于如何获取空调的控制寄存器地址，请参考[5.4 空调的状态寄存器和控制寄存器地址计算](#)。
+关于如何获取空调的控制寄存器地址，请参考[5.4 空调的状态寄存器和控制寄存器地址计算](#54-空调的状态寄存器和控制寄存器地址计算)。
 
 请求消息样例：
 ```html
@@ -1105,10 +1145,659 @@ http://edgex-core-command:48082/api/v1/device/3605fe85-cbdc-4e87-8db9-2befe6a9c3
 
 ## 4. 通过OWON网关控制灯
 
+### 4.1 获取OWON网关下灯设备的命令信息列表
+**请求主题**
+
+```html
+request_topic/command_get
+```
+
+**响应主题**
+
+```html
+response_topic/command_get
+```
+
+**请求**
+请求URL：
+```html
+http://edgex-core-command:48082/api/v1/device/name/owon
+```
+请求消息样例：
+
+```html
+{
+    "requestUUid":"456cfc00-50d9-4665-92e1-c7be3e4a2456",
+    "methodUrl":"http://edgex-core-command:48082/api/v1/device/name/owon",
+    "methodParam":null
+}
+```
+
+**响应**
+响应参数：
+
+|     名称          |     参数类型      |     说明                 |     位置                       |
+|-----------------------|-------------------|------------------------------|--------------------------------|
+|     id                |     String        |     设备ID                   |     edgexbody中的数据结构    |
+|     name              |     String        |     设备名称                 |     edgexbody中的数据结构    |
+|     adminState        |     String        |     设备管理状态             |     edgexbody中的数据结构    |
+|     operatingState    |     String        |     设备运行状态             |     edgexbody中的数据结构    |
+|     labels            |     String数组    |     设备标签                 |     edgexbody中的数据结构    |
+|     commands          |     JSON数组      |     设备命令信息列表         |     edgexbody中的数据结构    |
+|     created           |     Long          |     命令创建时间戳           |     commands中的数据结构     |
+|     modified          |     Long          |     命令修改时间戳           |     commands中的数据结构     |
+|     id                |     String        |     命令ID                   |     commands中的数据结构     |
+|     name              |     String        |     命令名称                 |     commands中的数据结构     |
+|     get               |     JSON对象      |     命令GET方法              |     commands中的数据结构     |
+|     url               |     String        |     命令GET方法的url         |     get中的数据结构          |
+|     path              |     String        |     命令GET方法的path路径    |     get中的数据结构          |
+|     responses         |     JSON数组      |     命令GET方法的响应        |     get中的数据结构          |
+|     code              |     String        |     响应码                   |     responses中的数据结构    |
+|     expectedValues    |     String数组    |     期望的数值               |     responses中的数据结构   |
+|     description       |     String        |     响应描述                 |     responses中的数据结构    |
+|     parameterNames    |     String数组    |     命令GET方法的参数名      |     get中的数据结构          |
+|     put               |     JSON对象      |     命令PUT方法              |     commands中的数据结构     |
+|     url               |     String        |     命令PUT方法的url         |     put中的数据结构         |
+|     path              |     String        |     命令PUT方法的path路径    |     put中的数据结构          |
+|     responses         |     JSON数组      |     命令PUT方法的响应        |     put中的数据结构          |
+|     code              |     String        |     响应码                   |     responses中的数据结构    |
+|     expectedValues    |     String数组    |     期望的数值               |     responses中的数据结构    |
+|     description       |     String        |     响应描述                 |     responses中的数据结构    |
+|     parameterNames    |     String数组    |     命令PUT方法的参数名      |     put中的数据结构          |
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+响应消息样例：
+
+```html
+{
+"requestUUid": "456cfc00-50d9-4665-92e1-c7be3e4a2456",
+"edgexCode": "200",
+"edgexMsg": "Edgex端处理请求成功!",
+"edgexbody": {
+    "id": "6e3b94a2-5b72-4234-8fdf-89890c08d2f5",
+    "name": "owon",
+    "adminState": "UNLOCKED",
+    "operatingState": "ENABLED",
+    "labels": [
+        "lamp"
+    ],
+    "commands": [
+        {
+            "created": 1622538254933,
+            "modified": 1622538254933,
+            "id": "d36c1417-0f9a-4666-bea1-dce85c7478fe",
+            "name": "switch_08F02004008D1500",
+            "get": {
+                "path": "/api/v1/device/{deviceId}/switch_08F02004008D1500",
+                "responses": [
+                    {
+                        "code": "200",
+                        "description": "get the switch_08F02004008D1500 status",
+                        "expectedValues": [
+                            "switch_08F02004008D1500"
+                        ]
+                    },
+                    {
+                        "code": "503",
+                        "description": "service unavailable"
+                    }
+                ],
+                "url": "http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/d36c1417-0f9a-4666-bea1-dce85c7478fe"
+            },
+            "put": {
+                "path": "/api/v1/device/{deviceId}/switch_08F02004008D1500",
+                "responses": [
+                    {
+                        "code": "200",
+                        "description": "set switch success."
+                    },
+                    {
+                        "code": "204",
+                        "description": "set the switch."
+                    },
+                    {
+                        "code": "503",
+                        "description": "service unavailable"
+                    }
+                ],
+                "url": "http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/d36c1417-0f9a-4666-bea1-dce85c7478fe",
+                "parameterNames": [
+                    "switch_08F02004008D1500"
+                ]
+            }
+        },
+        ……
+        ]
+    }
+}
+```
+
+### 4.2 查询灯的状态
+
+**请求主题**
+
+```html
+request_topic/command_get
+```
+
+**响应主题**
+
+```html
+response_topic/command_get
+```
+
+**请求**
+请求URL：
+```html
+http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/d36c1417-0f9a-4666-bea1-dce85c7478fe
+```
+请求消息样例：
+
+```html
+{
+    "requestUUid":"456cfc02-50d9-4665-92e1-c7be3e4a2456",
+    "methodUrl":"http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/d36c1417-0f9a-4666-bea1-dce85c7478fe",
+    "methodParam":null
+}
+```
+
+**响应**
+响应参数：
+
+|     名称        |     参数类型    |     说明                  |     位置                                                                                                         |
+|---------------------|-----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------|
+|     device          |     String      |     设备对应的网关名称        |     edgexbody中的数据结构                                                                                    |
+|     origin          |     Long        |     时间戳，标识唯一性                    |     edgexbody中的数据结构                                                                         |
+|     readings        |     JSON数组    |     设备命令对应的数据参数    |     edgexbody中的数据结构                                                                                     |
+|     origin          |     Long        |     时间戳，标识唯一性                    |     readings中的数据结构                                                                           |
+|     device          |     String      |     设备对应的网关名称        |     readings中的数据结构                                                                                       |
+|     name            |     String      |     设备命令名称              |     readings中的数据结构                                                                                       |
+|     value           |     String      |     开关状态<br>cache：缓存值<br>switchgear：开关的状态，off表示关机，on表示开机            |     readings中的数据结构    |
+|     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                                      |
+|     EncodedEvent    |     Null        |     未使用                      |     edgexbody中的数据结构                                                                         |
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+响应消息样例：
+
+```html
+{
+        "requestUUid": "456cfc02-50d9-4665-92e1-c7be3e4a2456",
+        "edgexCode": "200",
+        "edgexMsg": "Edgex端处理请求成功!",
+        "edgexbody": {
+            "device": "owon",
+            "origin": 1623139346955523173,
+            "readings": [
+                {
+                    "origin": 1623139346953944170,
+                    "device": "owon",
+                    "name": "switch_08F02004008D1500",
+                    "value": "{\"cache\":0,\"switchgear\":\"off\"}",
+                    "valueType": "String"
+                }
+            ],
+        "EncodedEvent": null
+        }
+}
+```
+
+### 4.3 设置灯的开关状态
+**请求主题**
+
+```html
+request_topic/command_put
+```
+
+**响应主题**
+
+```html
+response_topic/command_put
+```
+
+**请求**
+请求URL：
+```html
+http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/d36c1417-0f9a-4666-bea1-dce85c7478fe
+```
+请求参数：
+| 名称                 | 是否必须 | 参数类型 | 说明                                  |
+| -------------------- | -------- | -------- | ------------------------------------- |
+| switch_{灯的MAC地址} | 是       | string   | 灯的开关状态<br>on：开灯<br>off：关灯 |
+
+请求消息样例：
+
+```html
+{
+    "requestUUid":"456cfc03-50d9-4665-92e1-c7be3e4a2456",
+    "methodUrl":"http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/d36c1417-0f9a-4666-bea1-dce85c7478fe",
+    "methodParam":{
+    "switch_08F02004008D1500":"on"
+    }
+}
+```
+
+**响应**
+接口正常的返回码为2xx，例如200或者204。
+关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
+
+### 4.4 查询灯的亮度
+**请求主题**
+```html
+request_topic/command_get
+```
+
+**响应主题**
+```html
+response_topic/command_get
+```
+**请求**
+请求URL：
+```html
+http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/a2bf7ac0-26b3-4861-8ba5-23fde907f83f
+```
+请求消息样例：
+
+```html
+{
+    "requestUUid":"456cfc04-50d9-4665-92e1-c7be3e4a2456",
+    "methodUrl":"http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/a2bf7ac0-26b3-4861-8ba5-23fde907f83f",
+    "methodParam":null
+}
+```
+
+**响应**
+响应参数：
+
+|     名称        |     参数类型    |     说明                  |     位置                                                                                         |
+|---------------------|-----------------|-------------------------------|--------------------------------------------------------------------------------------------------|
+|     device          |     String      |     设备对应的网关名称        |     edgexbody中的数据结构                                                                      |
+|     origin          |     Long        |     时间戳，标识唯一性                    |     edgexbody中的数据结构                                                        |
+|     readings        |     JSON数组    |     设备命令对应的数据参数    |     edgexbody中的数据结构                                                                 |
+|     origin          |     Long        |     时间戳，标识唯一性                    |     readings中的数据结构                                                           |
+|     device          |     String      |     设备对应的网关名称        |     readings中的数据结构                                                                       |
+|     name            |     String      |     设备命令名称              |     readings中的数据结构                                                                       |
+|     value           |     String      |     灯的亮度<br>level字段取值范围：0-255<br>值越大，表示亮度越大       |     readings中的数据结构     |
+|     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                     |
+|     EncodedEvent    |     Null        |     未使用                      |     edgexbody中的数据结构                                                              |
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+响应消息样例：
+
+```html
+{
+        "requestUUid": "456cfc04-50d9-4665-92e1-c7be3e4a2456",
+        "edgexCode": "200",
+        "edgexMsg": "Edgex端处理请求成功!",
+        "edgexbody": {
+            "device": "owon",
+            "origin": 1623139969446399257,
+            "readings": [
+                {
+                    "origin": 1623139969446199680,
+                    "device": "owon",
+                    "name": "level_08F02004008D1500",
+                    "value": "{\"level\":62}",
+                    "valueType": "String"
+                }
+            ],
+        "EncodedEvent": null
+        }
+}
+```
+
+### 4.5 设置灯的亮度
+**请求主题**
+```html
+request_topic/command_put
+```
+**响应主题**
+```html
+response_topic/command_put
+```
+
+**请求**
+请求URL：
+```html
+http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/a2bf7ac0-26b3-4861-8ba5-23fde907f83f
+```
+请求参数：
+| 名称                | 是否必须 | 参数类型 | 说明                                                |
+| ------------------- | -------- | -------- | --------------------------------------------------- |
+| level_{灯的MAC地址} | 是       | string   | 灯的亮度<br>取值范围：0-255<br>值越大，表示亮度越大 |
+
+请求消息样例：
+
+```html
+{
+    "requestUUid":"456cfc05-50d9-4665-92e1-c7be3e4a2456",
+    "methodUrl":"http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/a2bf7ac0-26b3-4861-8ba5-23fde907f83f",
+    "methodParam":{
+    "level_08F02004008D1500":"150"
+    }
+}
+```
+
+**响应**
+接口正常的返回码为2xx，例如200或者204。
+关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 
+### 4.6 查找灯的位置
+**请求主题**
+```html
+request_topic/command_put
+```
+
+**响应主题**
+```html
+response_topic/command_put
+```
+
+**请求**
+请求URL：
+```html
+http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/50a08f1c-b506-4f0c-8dd4-c7899936a5d0
+```
+请求参数：
+| 名称                   | 是否必须 | 参数类型 | 说明                                                                           |
+| ---------------------- | -------- | -------- | ------------------------------------------------------------------------------ |
+| findNode_{灯的MAC地址} | 是       | string   | 灯闪烁的时间<br>取值范围：1-60（单位为秒）<br>您可以通过闪烁确定灯所在的位置。 |
+
+请求消息样例：
+```html
+{
+    "requestUUid":"456cfc06-50d9-4665-92e1-c7be3e4a2456",
+    "methodUrl":"http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/50a08f1c-b506-4f0c-8dd4-c7899936a5d0",
+    "methodParam":{
+    "findNode_08F02004008D1500":"10"
+    }
+}
+```
+
+**响应**
+接口正常的返回码为2xx，例如200或者204。
+关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 
+### 4.7 查看OWON网关连接的所有设备
+**请求主题**
+
+```html
+request_topic/command_get
+```
+
+**响应主题**
+
+```html
+response_topic/command_get
+```
+
+**请求**
+请求URL：
+```html
+http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/8b7ad566-1016-4de8-8ef1-c4185122cf25
+```
+请求消息样例：
+
+```html
+{
+    "requestUUid":"456cfc07-50d9-4665-92e1-c7be3e4a2456",
+    "methodUrl":"http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/8b7ad566-1016-4de8-8ef1-c4185122cf25",
+    "methodParam":null
+}
+```
+
+**响应**
+响应参数：
+
+|     名称        |     参数类型    |     说明                  |     位置                                   |
+|---------------------|-----------------|-------------------------------|--------------------------------------------|
+|     device          |     String      |     设备对应的网关名称        |     edgexbody中的数据结构                |
+|     origin          |     Long        |     时间戳，标识唯一性                    |     edgexbody中的数据结构    |
+|     readings        |     JSON数组    |     设备命令对应的数据参数    |     edgexbody中的数据结构                |
+|     origin          |     Long        |     时间戳，标识唯一性       |     readings中的数据结构     |
+|     device          |     String      |     设备对应的网关名称        |     readings中的数据结构                 |
+|     name            |     String      |     设备命令名称              |     readings中的数据结构                 |
+|     value           |     String      |     OWON网关连接的设备信息     |     readings中的数据结构                 |
+|     valueType       |     String      |     value字段的类型        |     readings中的数据结构                 |
+|     EncodedEvent    |     Null        |     未使用                     |     edgexbody中的数据结构        |
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+响应消息样例：
+
+```html
+{
+         "requestUUid": "456cfc07-50d9-4665-92e1-c7be3e4a2456",
+        "edgexCode": "200",
+        "edgexMsg": "Edgex端处理请求成功!",
+        "edgexbody": {
+            "device": "owon",
+            "origin": 1623141113832230925,
+            "readings": [
+                {
+                    "origin": 1623141113831804314,
+                    "device": "owon",
+                    "name": "listAllDev_listAllDev",
+                    "value": "{\"count\":2,\"epList\":[{\"IASZoneType\":65535,\"ProfileId\":260,\"clusterFlag\":3,\"devModel\":\"FNB56-ZCW39GD1.1\",\"deviceType\":269,\"ep\":1,\"ieee\":\"08F02004008D1500\",\"linkStatus\":true,\"manuCode\":4478,\"name\":\"Light-20F008\",\"netDeviceType\":1},{\"IASZoneType\":65535,\"ProfileId\":260,\"clusterFlag\":3,\"devModel\":\"FNB56-ZCW39GD1.1\",\"deviceType\":269,\"ep\":1,\"ieee\":\"CA2B2004008D1500\",\"linkStatus\":true,\"manuCode\":4478,\"name\":\"Light-202BCA\",\"netDeviceType\":1}],\"start\":0,\"total\":2}",
+                    "valueType": "String"
+                }
+            ],
+        "EncodedEvent": null
+        }
+}
+```
+
+### 4.8 查看灯的色温
+**请求主题**
+
+```html
+request_topic/command_get
+```
+
+**响应主题**
+
+```html
+response_topic/command_get
+```
+**请求**
+请求URL：
+```html
+http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/bba188c2-0d29-40b3-939b-560c6f7d17b5
+```
+请求消息样例：
+
+
+```html
+{
+    "requestUUid":"456cfc08-50d9-4665-92e1-c7be3e4a2456",
+    "methodUrl":"http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/bba188c2-0d29-40b3-939b-560c6f7d17b5",
+    "methodParam":null
+}
+```
+
+**响应**
+响应参数：
+
+|     名称        |     参数类型    |     说明                  |     位置                                                                                       |
+|---------------------|-----------------|-------------------------------|------------------------------------------------------------------------------------------------|
+|     device          |     String      |     设备对应的网关名称        |     edgexbody中的数据结构                                                                    |
+|     origin          |     Long        |     时间戳，标识唯一性                    |     edgexbody中的数据结构                                                        |
+|     readings        |     JSON数组    |     设备命令对应的数据参数    |     edgexbody中的数据结构                                                                    |
+|     origin          |     Long        |     时间戳，标识唯一性                    |     readings中的数据结构                                                         |
+|     device          |     String      |     设备对应的网关名称        |     readings中的数据结构                                                                     |
+|     name            |     String      |     设备命令名称              |     readings中的数据结构                                                                    |
+|     value           |     String      |     灯的色温<br>colorTemp取值范围：1-370<br>值越大，色温越偏暖  |     readings中的数据结构    |
+|     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                     |
+|     EncodedEvent    |     Null        |     未使用                      |     edgexbody中的数据结构                                                          |
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+响应消息样例：
+
+```html
+{
+        "requestUUid": "456cfc08-50d9-4665-92e1-c7be3e4a2456",
+        "edgexCode": "200",
+        "edgexMsg": "Edgex端处理请求成功!",
+        "edgexbody": {
+            "device": "owon",
+            "origin": 1623141399220227411,
+            "readings": [
+                {
+                    "origin": 1623141399219769849,
+                    "device": "owon",
+                    "name": "color_08F02004008D1500",
+                    "value": "{\"colorTemp\":250,\"status\":0}",
+                    "valueType": "String"
+                }
+            ],
+        "EncodedEvent": null
+        }
+}
+```
+
+### 4.9 设置灯的色温
+**请求主题**
+
+```html
+request_topic/command_put
+```
+
+**响应主题**
+
+```html
+response_topic/command_put
+```
+**请求**
+请求URL：
+```html
+http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/bba188c2-0d29-40b3-939b-560c6f7d17b5
+```
+请求参数：
+| 名称                | 是否必须 | 参数类型 | 说明                                                  |
+| ------------------- | -------- | -------- | ----------------------------------------------------- |
+| color_{灯的MAC地址} | 是       | string   | 要设置的色温<br>取值范围：1-370<br>值越大，色温越偏暖 |
+
+请求消息样例：
+
+```html
+{
+    "requestUUid":"456cfc09-50d9-4665-92e1-c7be3e4a2456",
+    "methodUrl":"http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/bba188c2-0d29-40b3-939b-560c6f7d17b5",
+    "methodParam":{
+    "color_08F02004008D1500":"320"
+    }
+}
+```
+
+**响应**
+接口正常的返回码为2xx，例如200或者204。
+关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
+
+### 4.10 查看灯的颜色
+**请求主题**
+
+```html
+request_topic/command_get
+```
+
+**响应主题**
+
+```html
+response_topic/command_get
+```
+**请求**
+请求URL：
+```html
+http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/c3b2cda3-fffe-4373-aa65-1f1d9ed46555
+```
+请求消息样例：
+
+```html
+{
+    "requestUUid":"456cfc10-50d9-4665-92e1-c7be3e4a2456",
+    "methodUrl":"http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/c3b2cda3-fffe-4373-aa65-1f1d9ed46555",
+    "methodParam":null
+}
+```
+
+**响应**
+响应参数：
+
+|     名称        |     参数类型    |     说明                  |     位置                                                                                                                                  |
+|---------------------|-----------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+|     device          |     String      |     设备对应的网关名称        |     edgexbody中的数据结构                                                                                                               |
+|     origin          |     Long        |     时间戳，标识唯一性                    |     edgexbody中的数据结构                                                                                                   |
+|     readings        |     JSON数组    |     设备命令对应的数据参数    |     edgexbody中的数据结构                                                                                                               |
+|     origin          |     Long        |     时间戳，标识唯一性                    |     readings中的数据结构                                                                                                    |
+|     device          |     String      |     设备对应的网关名称        |     readings中的数据结构                                                                                                                |
+|     name            |     String      |     设备命令名称              |     readings中的数据结构                                                                                                                |
+|     value           |     String      |     灯的颜色<br>其中colorX和colorY是灯的颜色代码。<br>关于此处颜色代码与RGB颜色代码的转换，请参考[5.3 颜色代码转换](#53-颜色代码转换)。            |     readings中的数据结构   |
+|     valueType       |     String      |     value字段的类型        |     readings中的数据结构                                                                                                                |
+|     EncodedEvent    |     Null        |     未使用                      |     edgexbody中的数据结构                                                                                                 |
+其他参数请参考[5.1 响应公共参数](#51-响应公共参数)。
+
+响应消息样例：
+
+```html
+{
+        "requestUUid": "456cfc10-50d9-4665-92e1-c7be3e4a2456",
+        "edgexCode": "200",
+        "edgexMsg": "Edgex端处理请求成功!",
+        "edgexbody": {
+            "device": "owon",
+            "origin": 1623141827748055126,
+            "readings": [
+                {
+                    "origin": 1623141827747650763,
+                    "device": "owon",
+                    "name": "colorXY_08F02004008D1500",
+                    "value": "{\"colorX\":28065,\"colorY\":26269}",
+                    "valueType": "String"
+                }
+            ],
+        "EncodedEvent": null
+        }
+}
+```
+
+### 4.11 设置灯的颜色
+**请求主题**
+
+```html
+request_topic/command_put
+```
+
+**响应主题**
+
+```html
+response_topic/command_put
+```
+
+**请求**
+请求URL：
+```html
+http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/c3b2cda3-fffe-4373-aa65-1f1d9ed46555
+```
+请求参数：
+| 名称                  | 是否必须 | 参数类型 | 说明                                                                                                     |
+| --------------------- | -------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| colorXY_{灯的MAC地址} | 是       | string   | 灯的颜色<br>其中colorX和colorY是灯的颜色代码。<br>关于此处颜色代码与RGB颜色代码的转换，请参考“[5.3 颜色代码转换](#53-颜色代码转换)”。 |
+
+请求消息样例：
+
+```html
+{
+    "requestUUid":"456cfc11-50d9-4665-92e1-c7be3e4a2456",
+    "methodUrl":"http://edgex-core-command:48082/api/v1/device/6e3b94a2-5b72-4234-8fdf-89890c08d2f5/command/c3b2cda3-fffe-4373-aa65-1f1d9ed46555",
+    "methodParam":{
+    "colorXY_08F02004008D1500":"{\"colorX\":20494, \"colorY\":21561}"
+    }
+}
+```
+
+**响应**
+接口正常的返回码为2xx，例如200或者204。
+关于更多返回码和响应参数，请参考[5.1 响应公共参数](#51-响应公共参数)和[5.2 返回码](#52-返回码)。
 
 
 ## 5. 附录
