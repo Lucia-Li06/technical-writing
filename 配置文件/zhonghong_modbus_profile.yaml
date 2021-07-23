@@ -7,555 +7,280 @@ labels:
   - "gateway"
 deviceResources:
   -
-    name: "PowerGet_193"
+    name: "PowerGet"
     description: "get power status"
     attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "193" }
+      { primaryTable: "HOLDING_REGISTERS" }
     properties:
       value:
         { type: "UINT16", scale: "1"}
       units:
         { type: "String", readWrite: "R", defaultValue: ""}
   -
-    name: "PowerSet_4129"
+    name: "PowerSet"
     description: "set power on or off"
     attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "4129"}
+      { primaryTable: "HOLDING_REGISTERS"}
     properties:
       value:
         { type: "UINT16", scale: "1"}
       units:
         { type: "String", readWrite: "R", defaultValue: ""}
   -
-    name: "TemperatureGet_194"
+    name: "TemperatureGet"
     description: "get temperature of air conditioner"
     attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "194" }
+      { primaryTable: "HOLDING_REGISTERS" }
     properties:
       value:
         { type: "UINT16", scale: "1"}
       units:
         { type: "String", readWrite: "R", defaultValue: ""}
   -
-    name: "TemperatureSet_4130"
+    name: "TemperatureSet"
     description: "set temperature of air conditioner"
     attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "4130" }
+      { primaryTable: "HOLDING_REGISTERS" }
     properties:
       value:
         { type: "UINT16", scale: "1"}
       units:
         { type: "String", readWrite: "R", defaultValue: ""}
   -
-    name: "ModelGet_195"
+    name: "ModelGet"
     description: "get model of air conditioner"
     attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "195" }
+      { primaryTable: "HOLDING_REGISTERS" }
     properties:
       value:
         { type: "UINT16", scale: "1"}
       units:
         { type: "String", readWrite: "R", defaultValue: ""}
   -
-    name: "ModelSet_4131"
+    name: "ModelSet"
     description: "set model of air conditioner"
     attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "4131" }
+      { primaryTable: "HOLDING_REGISTERS" }
     properties:
       value:
         { type: "UINT16", scale: "1"}
       units:
         { type: "String", readWrite: "R", defaultValue: ""}
   -
-    name: "WindSpeedGet_196"
+    name: "WindSpeedGet"
     description: "get WindSpeed of air conditioner"
     attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "196" }
+      { primaryTable: "HOLDING_REGISTERS" }
     properties:
       value:
         { type: "UINT16", scale: "1"}
       units:
         { type: "String", readWrite: "R", defaultValue: ""}
   -
-    name: "WindSpeedSet_4132"
+    name: "WindSpeedSet"
     description: "set WindSpeed of air conditioner"
     attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "4132" }
+      { primaryTable: "HOLDING_REGISTERS" }
     properties:
       value:
         { type: "UINT16", scale: "1"}
       units:
         { type: "String", readWrite: "R", defaultValue: ""}
   -
-    name: "CurrentTemperatureGet_197"
+    name: "CurrentTemperatureGet"
     description: "get CurrentTemperature of air conditioner"
     attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "197" }
+      { primaryTable: "HOLDING_REGISTERS" }
     properties:
       value:
         { type: "UINT16", scale: "1"}
       units:
         { type: "String", readWrite: "R", defaultValue: ""}
   -
-    name: "ErrorGet_198"
+    name: "ErrorGet"
     description: "get power status"
     attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "198" }
+      { primaryTable: "HOLDING_REGISTERS" }
     properties:
       value:
         { type: "UINT16", scale: "1"}
       units:
         { type: "String", readWrite: "R", defaultValue: ""}
 
-  -
-    name: "PowerGet_199"
-    description: "get power status"
-    attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "199" }
-    properties:
-      value:
-        { type: "UINT16", scale: "1"}
-      units:
-        { type: "String", readWrite: "R", defaultValue: ""}
-  -
-    name: "PowerSet_4133"
-    description: "set power on or off"
-    attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "4133"}
-    properties:
-      value:
-        { type: "UINT16", scale: "1"}
-      units:
-        { type: "String", readWrite: "R", defaultValue: ""}
-  -
-    name: "TemperatureGet_200"
-    description: "get temperature of air conditioner"
-    attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "200" }
-    properties:
-      value:
-        { type: "UINT16", scale: "1"}
-      units:
-        { type: "String", readWrite: "R", defaultValue: ""}
-  -
-    name: "TemperatureSet_4134"
-    description: "set temperature of air conditioner"
-    attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "4134" }
-    properties:
-      value:
-        { type: "UINT16", scale: "1"}
-      units:
-        { type: "String", readWrite: "R", defaultValue: ""}
-  -
-    name: "ModelGet_201"
-    description: "get model of air conditioner"
-    attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "201" }
-    properties:
-      value:
-        { type: "UINT16", scale: "1"}
-      units:
-        { type: "String", readWrite: "R", defaultValue: ""}
-  -
-    name: "ModelSet_4135"
-    description: "set model of air conditioner"
-    attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "4135" }
-    properties:
-      value:
-        { type: "UINT16", scale: "1"}
-      units:
-        { type: "String", readWrite: "R", defaultValue: ""}
-  -
-    name: "WindSpeedGet_202"
-    description: "get WindSpeed of air conditioner"
-    attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "202" }
-    properties:
-      value:
-        { type: "UINT16", scale: "1"}
-      units:
-        { type: "String", readWrite: "R", defaultValue: ""}
-  -
-    name: "WindSpeedSet_4136"
-    description: "set WindSpeed of air conditioner"
-    attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "4136" }
-    properties:
-      value:
-        { type: "UINT16", scale: "1"}
-      units:
-        { type: "String", readWrite: "R", defaultValue: ""}
-  -
-    name: "CurrentTemperatureGet_203"
-    description: "get CurrentTemperature of air conditioner"
-    attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "203" }
-    properties:
-      value:
-        { type: "UINT16", scale: "1"}
-      units:
-        { type: "String", readWrite: "R", defaultValue: ""}
-  -
-    name: "ErrorGet_204"
-    description: "get error code from air conditioner"
-    attributes:
-      { primaryTable: "HOLDING_REGISTERS", startingAddress: "204" }
-    properties:
-      value:
-        { type: "UINT16", scale: "1"}
-      units:
-        { type: "String", readWrite: "R", defaultValue: ""}
-        
 deviceCommands:
   -
-    name: "PowerGet_193"
+    name: "PowerGet"
     get:
-      - { index: "1", operation: "get", deviceResource: "PowerGet_193" }
+      - { index: "1", operation: "get", deviceResource: "PowerGet" }
   -
-    name: "PowerSet_4129"
+    name: "PowerSet"
     set:
-      - { index: "1", operation: "set", deviceResource: "PowerSet_4129" }
+      - { index: "1", operation: "set", deviceResource: "PowerSet" }
   -
-    name: "TemperatureGet_194"
+    name: "TemperatureGet"
     get:
-      - { index: "1", operation: "get", deviceResource: "TemperatureGet_194" }
+      - { index: "1", operation: "get", deviceResource: "TemperatureGet" }
   -
-    name: "TemperatureSet_4130"
+    name: "TemperatureSet"
     set:
-      - { index: "1", operation: "set", deviceResource: "TemperatureSet_4130" }
+      - { index: "1", operation: "set", deviceResource: "TemperatureSet" }
   -
-    name: "ModelGet_195"
+    name: "ModelGet"
     get:
-      - { index: "1", operation: "get", deviceResource: "ModelGet_195" }
+      - { index: "1", operation: "get", deviceResource: "ModelGet" }
   -
-    name: "ModelSet_4131"
+    name: "ModelSet"
     set:
-      - { index: "1", operation: "set", deviceResource: "ModelSet_4131" }
+      - { index: "1", operation: "set", deviceResource: "ModelSet" }
   -
-    name: "WindSpeedGet_196"
+    name: "WindSpeedGet"
     get:
-      - { index: "1", operation: "get", deviceResource: "WindSpeedGet_196" }
+      - { index: "1", operation: "get", deviceResource: "WindSpeedGet" }
   -
-    name: "WindSpeedSet_4132"
+    name: "WindSpeedSet"
     set:
-      - { index: "1", operation: "set", deviceResource: "WindSpeedSet_4132" }
+      - { index: "1", operation: "set", deviceResource: "WindSpeedSet" }
   -
-    name: "CurrentTemperatureGet_197"
+    name: "CurrentTemperatureGet"
     get:
-      - { index: "1", operation: "get", deviceResource: "CurrentTemperatureGet_197" }
+      - { index: "1", operation: "get", deviceResource: "CurrentTemperatureGet" }
   -
-    name: "ErrorGet_198"
+    name: "ErrorGet"
     get:
-      - { index: "1", operation: "get", deviceResource: "ErrorGet_198" }
-  -
-    name: "PowerGet_199"
-    get:
-      - { index: "1", operation: "get", deviceResource: "PowerGet_199" }
-  -
-    name: "PowerSet_4133"
-    set:
-      - { index: "1", operation: "set", deviceResource: "PowerSet_4133" }
-  -
-    name: "TemperatureGet_200"
-    get:
-      - { index: "1", operation: "get", deviceResource: "TemperatureGet_200" }
-  -
-    name: "TemperatureSet_4134"
-    set:
-      - { index: "1", operation: "set", deviceResource: "TemperatureSet_4134" }
-  -
-    name: "ModelGet_201"
-    get:
-      - { index: "1", operation: "get", deviceResource: "ModelGet_201" }
-  -
-    name: "ModelSet_4135"
-    set:
-      - { index: "1", operation: "set", deviceResource: "ModelSet_4135" }
-  -
-    name: "WindSpeedGet_202"
-    get:
-      - { index: "1", operation: "get", deviceResource: "WindSpeedGet_202" }
-  -
-    name: "WindSpeedSet_4136"
-    set:
-      - { index: "1", operation: "set", deviceResource: "WindSpeedSet_4136" }
-  -
-    name: "CurrentTemperatureGet_203"
-    get:
-      - { index: "1", operation: "get", deviceResource: "CurrentTemperatureGet_203" }
-  -
-    name: "ErrorGet_204"
-    get:
-      - { index: "1", operation: "get", deviceResource: "ErrorGet_204" }
+      - { index: "1", operation: "get", deviceResource: "ErrorGet" }
 
 
 coreCommands:
   -
-    name: "PowerGet_193"
+    name: "PowerGet"
     get:
-      path: "/api/v1/device/{deviceId}/PowerGet_193"
+      path: "/api/v1/device/{deviceId}/PowerGet"
       responses:
         -
           code: "200"
-          description: "Get the PowerGet_193"
-          expectedValues: ["PowerGet_193"]
+          description: "Get the PowerGet"
+          expectedValues: ["PowerGet"]
         -
           code: "500"
           description: "internal server error"
           expectedValues: []
   -
-    name: "PowerSet_4129"
+    name: "PowerSet"
     put:
-      path: "/api/v1/device/{deviceId}/PowerSet_4129"
-      parameterNames: ["PowerSet_4129"]
+      path: "/api/v1/device/{deviceId}/PowerSet"
+      parameterNames: ["PowerSet"]
       responses:
         -
           code: "204"
-          description: "Set the PowerSet_4129"
-          expectedValues: ["PowerSet_4129"]
+          description: "Set the PowerSet"
+          expectedValues: ["PowerSet"]
         -
           code: "500"
           description: "internal server error"
           expectedValues: []
   -
-    name: "TemperatureGet_194"
+    name: "TemperatureGet"
     get:
-      path: "/api/v1/device/{deviceId}/TemperatureGet_194"
+      path: "/api/v1/device/{deviceId}/TemperatureGet"
       responses:
         -
           code: "200"
-          description: "Get the TemperatureGet_194"
-          expectedValues: ["TemperatureGet_194"]
+          description: "Get the TemperatureGet"
+          expectedValues: ["TemperatureGet"]
         -
           code: "500"
           description: "internal server error"
           expectedValues: []
   -
-    name: "TemperatureSet_4130"
+    name: "TemperatureSet"
     put:
-      path: "/api/v1/device/{deviceId}/TemperatureSet_4130"
-      parameterNames: ["TemperatureSet_4130"]
+      path: "/api/v1/device/{deviceId}/TemperatureSet"
+      parameterNames: ["TemperatureSet"]
       responses:
         -
           code: "204"
-          description: "Set the TemperatureSet_4130"
+          description: "Set the TemperatureSet"
           expectedValues: []
         -
           code: "500"
           description: "internal server error"
           expectedValues: []
   -
-    name: "ModelGet_195"
+    name: "ModelGet"
     get:
-      path: "/api/v1/device/{deviceId}/ModelGet_195"
+      path: "/api/v1/device/{deviceId}/ModelGet"
       responses:
         -
           code: "200"
-          description: "Get the ModelGet_195"
-          expectedValues: ["ModelGet_195"]
+          description: "Get the ModelGet"
+          expectedValues: ["ModelGet"]
         -
           code: "500"
           description: "internal server error"
           expectedValues: []
   -
-    name: "ModelSet_4131"
+    name: "ModelSet"
     put:
-      path: "/api/v1/device/{deviceId}/ModelSet_4131"
-      parameterNames: ["ModelSet_4131"]
+      path: "/api/v1/device/{deviceId}/ModelSet"
+      parameterNames: ["ModelSet"]
       responses:
         -
           code: "204"
-          description: "Set the ModelSet_4131"
+          description: "Set the ModelSet"
           expectedValues: []
         -
           code: "500"
           description: "internal server error"
           expectedValues: []
   -
-    name: "WindSpeedGet_196"
+    name: "WindSpeedGet"
     get:
-      path: "/api/v1/device/{deviceId}/WindSpeedGet_196"
+      path: "/api/v1/device/{deviceId}/WindSpeedGet"
       responses:
         -
           code: "200"
-          description: "Get the WindSpeedGet_196"
-          expectedValues: ["WindSpeedGet_196"]
+          description: "Get the WindSpeedGet"
+          expectedValues: ["WindSpeedGet"]
         -
           code: "500"
           description: "internal server error"
           expectedValues: []
   -
-    name: "WindSpeedSet_4132"
+    name: "WindSpeedSet"
     put:
-      path: "/api/v1/device/{deviceId}/WindSpeedSet_4132"
-      parameterNames: ["WindSpeedSet_4132"]
+      path: "/api/v1/device/{deviceId}/WindSpeedSet"
+      parameterNames: ["WindSpeedSet"]
       responses:
         -
           code: "204"
-          description: "Set the WindSpeedSet_4132"
+          description: "Set the WindSpeedSet"
           expectedValues: []
         -
           code: "500"
           description: "internal server error"
           expectedValues: []
   -
-    name: "CurrentTemperatureGet_197"
+    name: "CurrentTemperatureGet"
     get:
-      path: "/api/v1/device/{deviceId}/CurrentTemperatureGet_197"
+      path: "/api/v1/device/{deviceId}/CurrentTemperatureGet"
       responses:
         -
           code: "200"
-          description: "Get the CurrentTemperatureGet_197"
-          expectedValues: ["CurrentTemperatureGet_197"]
+          description: "Get the CurrentTemperatureGet"
+          expectedValues: ["CurrentTemperatureGet"]
         -
           code: "500"
           description: "internal server error"
           expectedValues: []
   -
-    name: "ErrorGet_198"
+    name: "ErrorGet"
     get:
-      path: "/api/v1/device/{deviceId}/ErrorGet_198"
+      path: "/api/v1/device/{deviceId}/ErrorGet"
       responses:
         -
           code: "200"
-          description: "Get the ErrorGet_198"
-          expectedValues: ["ErrorGet_198"]
-        -
-          code: "500"
-          description: "internal server error"
-          expectedValues: []
-  -
-    name: "PowerGet_199"
-    get:
-      path: "/api/v1/device/{deviceId}/PowerGet_199"
-      responses:
-        -
-          code: "200"
-          description: "Get the PowerGet_199"
-          expectedValues: ["PowerGet_199"]
-        -
-          code: "500"
-          description: "internal server error"
-          expectedValues: []
-  -
-    name: "PowerSet_4133"
-    put:
-      path: "/api/v1/device/{deviceId}/PowerSet_4133"
-      parameterNames: ["PowerSet_4133"]
-      responses:
-        -
-          code: "204"
-          description: "Set the PowerSet_4133"
-          expectedValues: ["PowerSet_4133"]
-        -
-          code: "500"
-          description: "internal server error"
-          expectedValues: []
-  -
-    name: "TemperatureGet_200"
-    get:
-      path: "/api/v1/device/{deviceId}/TemperatureGet_200"
-      responses:
-        -
-          code: "200"
-          description: "Get the TemperatureGet_200"
-          expectedValues: ["TemperatureGet_200"]
-        -
-          code: "500"
-          description: "internal server error"
-          expectedValues: []
-  -
-    name: "TemperatureSet_4134"
-    put:
-      path: "/api/v1/device/{deviceId}/TemperatureSet_4134"
-      parameterNames: ["TemperatureSet_4134"]
-      responses:
-        -
-          code: "204"
-          description: "Set the TemperatureSet_4134"
-          expectedValues: []
-        -
-          code: "500"
-          description: "internal server error"
-          expectedValues: []
-  -
-    name: "ModelGet_201"
-    get:
-      path: "/api/v1/device/{deviceId}/ModelGet_201"
-      responses:
-        -
-          code: "200"
-          description: "Get the ModelGet_201"
-          expectedValues: ["ModelGet_201"]
-        -
-          code: "500"
-          description: "internal server error"
-          expectedValues: []
-  -
-    name: "ModelSet_4135"
-    put:
-      path: "/api/v1/device/{deviceId}/ModelSet_4135"
-      parameterNames: ["ModelSet_4135"]
-      responses:
-        -
-          code: "204"
-          description: "Set the ModelSet_4135"
-          expectedValues: []
-        -
-          code: "500"
-          description: "internal server error"
-          expectedValues: []
-  -
-    name: "WindSpeedGet_202"
-    get:
-      path: "/api/v1/device/{deviceId}/WindSpeedGet_202"
-      responses:
-        -
-          code: "200"
-          description: "Get the WindSpeedGet_202"
-          expectedValues: ["WindSpeedGet_202"]
-        -
-          code: "500"
-          description: "internal server error"
-          expectedValues: []
-  -
-    name: "WindSpeedSet_4136"
-    put:
-      path: "/api/v1/device/{deviceId}/WindSpeedSet_4136"
-      parameterNames: ["WindSpeedSet_4136"]
-      responses:
-        -
-          code: "204"
-          description: "Set the WindSpeedSet_4136"
-          expectedValues: []
-        -
-          code: "500"
-          description: "internal server error"
-          expectedValues: []
-  -
-    name: "CurrentTemperatureGet_203"
-    get:
-      path: "/api/v1/device/{deviceId}/CurrentTemperatureGet_203"
-      responses:
-        -
-          code: "200"
-          description: "Get the CurrentTemperatureGet_203"
-          expectedValues: ["CurrentTemperatureGet_203"]
-        -
-          code: "500"
-          description: "internal server error"
-          expectedValues: []
-  -
-    name: "ErrorGet_204"
-    get:
-      path: "/api/v1/device/{deviceId}/ErrorGet_204"
-      responses:
-        -
-          code: "200"
-          description: "Get the ErrorGet_204"
-          expectedValues: ["ErrorGet_204"]
+          description: "Get the ErrorGet"
+          expectedValues: ["ErrorGet"]
         -
           code: "500"
           description: "internal server error"
